@@ -91,6 +91,21 @@ main {
     border-radius: 12px;
 }
 
+#stats-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#lives-container {
+    color: #e74c3c;
+}
+
+#score-container {
+    color: #27ae60;
+}
+
 #next-btn {
     background-color: #f44336;
     border: none;

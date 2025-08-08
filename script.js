@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTopic = null;
     let currentQuestionIndex = 0;
     let score = 0;
+    let lives = 0;
     let historyStack = [];
 
     function updateNavButtons() {
@@ -46,10 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
         showTopics();
     }
 
+    function updateLives() {
+        const livesContainer = document.getElementById('lives-container');
+        livesContainer.innerHTML = '❤️'.repeat(lives);
+    }
+
+    function updateScore() {
+        document.getElementById('current-score').textContent = score;
+    }
+
     function loadState(state) {
         currentTopic = state.topic;
         currentQuestionIndex = state.questionIndex;
         score = state.score;
+        lives = state.lives;
 
         topicsContainer.classList.add('hidden');
         comprehensionContainer.classList.add('hidden');
@@ -70,7 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const state = {
             topic: topic,
             questionIndex: 0,
-            score: 0
+            score: 0,
+            lives: 3
         };
         historyStack.push(state);
         loadState(state);
@@ -111,7 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function displayQuestion() {
-        if (currentQuestionIndex < currentTopic.questions.length) {
+        updateLives();
+        updateScore();
+        if (lives > 0 && currentQuestionIndex < currentTopic.questions.length) {
             const question = currentTopic.questions[currentQuestionIndex];
             document.getElementById('question').textContent = question.question;
             const optionsContainer = document.getElementById('options-container');
@@ -132,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const question = currentTopic.questions[currentQuestionIndex];
         if (selected === question.answer) {
             score++;
+        } else {
+            lives--;
         }
         currentQuestionIndex++;
         displayQuestion();
@@ -140,7 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function showResults() {
         quizContainer.classList.add('hidden');
         resultsContainer.classList.remove('hidden');
-        document.getElementById('score').textContent = `Jy het ${score} uit ${currentTopic.questions.length} reg!`;
+        let message = `Jy het ${score} uit ${currentTopic.questions.length} reg!`;
+        if (lives === 0) {
+            message = "Speletjie verby! " + message;
+        }
+        document.getElementById('score').textContent = message;
     }
 
     document.getElementById('next-btn').addEventListener('click', () => {
