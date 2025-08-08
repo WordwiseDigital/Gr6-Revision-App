@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graad 6 Afrikaans Safari Avontuur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welkom by die Safari Avontuur!</h1>
+    </header>
+    <main>
+        <div id="topics-container">
+            <h2>Kies 'n onderwerp</h2>
+            <div id="topics"></div>
+        </div>
+        <div id="comprehension-container" class="hidden">
+            <h2>Lees die teks en beantwoord die vrae</h2>
+            <div id="comprehension-text"></div>
+            <div id="comprehension-questions"></div>
+        </div>
+        <div id="quiz-container" class="hidden">
+            <div id="question-container">
+                <p id="question"></p>
+                <div id="options-container"></div>
+            </div>
+            <button id="next-btn">Volgende</button>
+        </div>
+        <div id="results-container" class="hidden">
+            <h2>Resultate</h2>
+            <p id="score"></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Safari Avontuur</p>
+    </footer>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
