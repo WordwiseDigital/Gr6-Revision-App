@@ -143,6 +143,29 @@ main {
     font-size: 24px;
 }
 
+#badges-container {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(244, 162, 97, 0.2);
+    border-radius: 10px;
+}
+
+#badges-container h3 {
+    color: #8B4513;
+    margin-top: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #e76f51;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
 footer {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;

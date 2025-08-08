@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizContainer = document.getElementById('quiz-container');
     const resultsContainer = document.getElementById('results-container');
     const topicsDiv = document.getElementById('topics');
+    const badgesContainer = document.getElementById('badges-container');
     const backBtn = document.getElementById('back-btn');
     const homeBtn = document.getElementById('home-btn');
     const forwardBtn = document.getElementById('forward-btn');
@@ -16,6 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
     let lives = 0;
     let historyStack = [];
+    let earnedBadges = [];
+
+    function getBadges() {
+        const badges = localStorage.getItem('afrikaansSafariBadges');
+        return badges ? JSON.parse(badges) : [];
+    }
+
+    function saveBadges() {
+        localStorage.setItem('afrikaansSafariBadges', JSON.stringify(earnedBadges));
+    }
+
+    function displayBadges() {
+        badgesContainer.innerHTML = '<h3>My Kentekens</h3>'; // Clear previous badges
+        if (earnedBadges.length === 0) {
+            const noBadgeText = document.createElement('p');
+            noBadgeText.textContent = "Voltooi 'n onderwerp met 80% of meer om 'n kenteken te verdien!";
+            badgesContainer.appendChild(noBadgeText);
+        } else {
+            earnedBadges.forEach(badgeName => {
+                const badgeEl = document.createElement('span');
+                badgeEl.className = 'badge';
+                badgeEl.textContent = `🏅 ${badgeName}`;
+                badgesContainer.appendChild(badgeEl);
+            });
+        }
+    }
 
     function updateNavButtons() {
         backBtn.classList.toggle('hidden', historyStack.length <= 1);
@@ -29,10 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
         comprehensionContainer.classList.add('hidden');
         quizContainer.classList.add('hidden');
         resultsContainer.classList.add('hidden');
+        displayBadges();
         updateNavButtons();
     }
 
     function init() {
+        earnedBadges = getBadges();
         topics.forEach(topic => {
             const button = document.createElement('button');
             button.textContent = topic.name;
@@ -95,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const textDiv = document.getElementById('comprehension-text');
         const questionsDiv = document.getElementById('comprehension-questions');
         textDiv.innerHTML = `<p>${comprehension.text}</p>`;
+        questionsDiv.innerHTML = ''; // Clear previous questions
 
         comprehension.questions.forEach((question, index) => {
             const questionEl = document.createElement('div');
@@ -178,12 +208,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showResults() {
         quizContainer.classList.add('hidden');
+        comprehensionContainer.classList.add('hidden');
         resultsContainer.classList.remove('hidden');
-        let message = `Jy het ${score} uit ${currentTopic.questions.length} reg!`;
+
+        const totalQuestions = currentTopic.questions ? currentTopic.questions.length : currentTopic.comprehension.questions.length;
+        let message = `Jy het ${score} uit ${totalQuestions} reg!`;
+
+        const percentage = (score / totalQuestions) * 100;
+        if (percentage >= 80 && !earnedBadges.includes(currentTopic.name)) {
+            earnedBadges.push(currentTopic.name);
+            saveBadges();
+            message += `<br>🎉 Jy het die ${currentTopic.name} kenteken verdien!`;
+        }
+
         if (lives === 0) {
             message = "Speletjie verby! " + message;
         }
         document.getElementById('score').textContent = message;
+        // The above line will not render the <br> tag. We need to use innerHTML.
+        document.getElementById('score').innerHTML = message;
     }
 
     nextBtn.addEventListener('click', () => {
