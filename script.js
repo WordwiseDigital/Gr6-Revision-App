@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.getElementById('back-btn');
     const homeBtn = document.getElementById('home-btn');
     const forwardBtn = document.getElementById('forward-btn');
+    const feedbackContainer = document.getElementById('feedback-container');
+    const feedbackText = document.getElementById('feedback-text');
+    const nextBtn = document.getElementById('next-btn');
 
     let currentTopic = null;
     let currentQuestionIndex = 0;
@@ -134,23 +137,43 @@ document.addEventListener('DOMContentLoaded', () => {
             question.options.forEach(option => {
                 const button = document.createElement('button');
                 button.textContent = option;
-                button.addEventListener('click', () => checkAnswer(option));
+                button.addEventListener('click', () => checkAnswer(option, button));
                 optionsContainer.appendChild(button);
             });
+            feedbackContainer.classList.add('hidden');
+            nextBtn.classList.add('hidden');
         } else {
             showResults();
         }
     }
 
-    function checkAnswer(selected) {
+    function checkAnswer(selected, button) {
         const question = currentTopic.questions[currentQuestionIndex];
+        const options = document.querySelectorAll('#options-container button');
+        options.forEach(option => option.disabled = true);
+
         if (selected === question.answer) {
             score++;
+            feedbackText.innerHTML = `<strong>Reg!</strong> ${question.explanation}`;
+            feedbackContainer.className = 'correct-feedback';
         } else {
             lives--;
+            feedbackText.innerHTML = `<strong>Verkeerd.</strong> Die korrekte antwoord is <strong>${question.answer}</strong>. ${question.explanation}`;
+            feedbackContainer.className = 'incorrect-feedback';
+            button.style.backgroundColor = '#f44336'; // Highlight wrong choice
         }
-        currentQuestionIndex++;
-        displayQuestion();
+
+        // Highlight correct answer
+        options.forEach(option => {
+            if (option.textContent === question.answer) {
+                option.style.backgroundColor = '#4CAF50';
+            }
+        });
+
+        feedbackContainer.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+        updateLives();
+        updateScore();
     }
 
     function showResults() {
@@ -163,10 +186,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('score').textContent = message;
     }
 
-    document.getElementById('next-btn').addEventListener('click', () => {
-        if (currentTopic && !currentTopic.comprehension) {
-            displayQuestion();
-        }
+    nextBtn.addEventListener('click', () => {
+        currentQuestionIndex++;
+        displayQuestion();
     });
 
     init();

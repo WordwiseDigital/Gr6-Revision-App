@@ -106,6 +106,25 @@ main {
     color: #27ae60;
 }
 
+#feedback-container {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.correct-feedback {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.incorrect-feedback {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 #next-btn {
     background-color: #f44336;
     border: none;
