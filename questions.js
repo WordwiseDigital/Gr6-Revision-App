@@ -1,54 +1,194 @@
 const topics = [
     {
-        name: "Voorsetsels",
+        name: "Woordsoorte",
         questions: [
-            {
-                question: "Die boek is ____ die tafel.",
-                options: ["op", "in", "onder", "langs"],
-                answer: "op"
-            },
-            {
-                question: "Die kat slaap ____ die stoel.",
-                options: ["op", "in", "onder", "langs"],
-                answer: "onder"
-            },
-            {
-                question: "Die man stap ____ die straat.",
-                options: ["op", "in", "oor", "langs"],
-                answer: "oor"
-            },
-            {
-                question: "Die kinders speel ____ die park.",
-                options: ["op", "in", "onder", "langs"],
-                answer: "in"
-            },
-            {
-                question: "Die motor ry ____ die brug.",
-                options: ["op", "in", "onder", "oor"],
-                answer: "oor"
-            }
+            { question: "Identifiseer die soortnaam in die sin: 'Die **hond** blaf vir die kat.'", options: ["hond", "blaf", "vir", "die"], answer: "hond" },
+            { question: "Wat is 'n eienaam in die sin: 'Ek gaan **Durban** toe.'?", options: ["Ek", "gaan", "Durban", "toe"], answer: "Durban" },
+            { question: "Watter woord is 'n abstrakte naamwoord?", options: ["tafel", "liefde", "boek", "stoel"], answer: "liefde" },
+            { question: "Gee die versamelnaam vir 'n groep skepe.", options: ["skool", "vloot", "trop", "swerm"], answer: "vloot" },
+            { question: "Kies die korrekte persoonlike voornaamwoord: '**Hy** skop die bal.'", options: ["Hy", "sy", "dit", "ons"], answer: "Hy" },
+            { question: "Watter woord is 'n besitlike voornaamwoord in die sin: 'Dit is **my** boek.'?", options: ["Dit", "is", "my", "boek"], answer: "my" },
+            { question: "Identifiseer die vraende voornaamwoord: '**Wie** het die koek geëet?'", options: ["Wie", "het", "die", "koek"], answer: "Wie" },
+            { question: "Kies die aanwysende voornaamwoord: '**Daardie** huis is groot.'", options: ["Daardie", "Die", "is", "groot"], answer: "Daardie" },
+            { question: "Wat is die hoofwerkwoord in die sin: 'Die kinders **speel** in die tuin.'?", options: ["kinders", "speel", "in", "tuin"], answer: "speel" },
+            { question: "Identifiseer die hulpwerkwoord: 'Ek **het** my werk gedoen.'", options: ["Ek", "het", "my", "werk"], answer: "het" },
+            { question: "Watter woord is 'n koppelwerkwoord in die sin: 'Sy **is** siek.'?", options: ["Sy", "is", "siek", "."], answer: "is" },
+            { question: "Gee die korrekte trap van vergelyking vir 'groot'.", options: ["groot, groter, grootste", "groot, grooter, grootse", "groter, groot, grootste", "grootste, groter, groot"], answer: "groot, groter, grootste" },
+            { question: "Identifiseer die bywoord van tyd: 'Ons gaan **môre** fliek.'", options: ["Ons", "gaan", "môre", "fliek"], answer: "môre" },
+            { question: "Watter woord is 'n bywoord van plek: 'Die kat slaap **hier**.'?", options: ["Die", "kat", "slaap", "hier"], answer: "hier" },
+            { question: "Kies die voegwoord in die sin: 'Ek sal kom **as** jy my vra.'", options: ["Ek", "sal", "kom", "as"], answer: "as" },
+            { question: "Identifiseer die voorsetsel: 'Die boek is **op** die tafel.'", options: ["Die", "boek", "is", "op"], answer: "op" },
+            { question: "Watter woord is 'n tussenwerpsel?", options: ["Sjoe!", "loop", "en", "tafel"], answer: "Sjoe!" },
+            { question: "Kies die bepaalde lidwoord: '**Die** seun is lank.'", options: ["Die", "'n", "seun", "lank"], answer: "Die" },
+            { question: "Kies die onbepaalde lidwoord: 'Ek sien **'n** voël.'", options: ["Ek", "sien", "'n", "voël"], answer: "'n" },
+            { question: "Wat is die bywoord van wyse in die sin: 'Sy sing **mooi**.'?", options: ["Sy", "sing", "mooi", "."], answer: "mooi" }
+        ]
+    },
+    {
+        name: "Sinstrukture",
+        questions: [
+            { question: "Rangskik die woorde korrek volgens STOMPI: (die bal - hy - skop - in die tuin)", options: ["Hy skop die bal in die tuin.", "In die tuin skop hy die bal.", "Hy in die tuin skop die bal.", "Die bal skop hy in die tuin."], answer: "Hy skop die bal in die tuin." },
+            { question: "Identifiseer die hoofsin: 'Ek lees die boek wat jy my gegee het.'", options: ["Ek lees die boek", "wat jy my gegee het", "lees die boek", "jy my gegee het"], answer: "Ek lees die boek" },
+            { question: "Verander die sin na die indirekte rede: 'Sy sê: \"Ek is moeg.\"'", options: ["Sy sê sy is moeg.", "Sy sê ek is moeg.", "Sy sê sy was moeg.", "Sy sê dat sy is moeg."], answer: "Sy sê sy is moeg." },
+            { question: "Verander die sin na die lydende vorm: 'Die seun skop die bal.'", options: ["Die bal word deur die seun geskop.", "Die bal is geskop deur die seun.", "Die seun word deur die bal geskop.", "Die bal skop die seun."], answer: "Die bal word deur die seun geskop." },
+            { question: "Watse tipe sin is hierdie? 'Maak die deur toe.'", options: ["Stelsin", "Vraagsin", "Bevelsin", "Uitroepsin"], answer: "Bevelsin" },
+            { question: "Identifiseer die bysin: 'Die man wat daar loop, is my pa.'", options: ["Die man", "wat daar loop", "is my pa", "Die man is my pa"], answer: "wat daar loop" },
+            { question: "Verander na direkte rede: 'Hy vra of ek saamkom.'", options: ["Hy vra: \"Kom jy saam?\"", "Hy vra: \"Of ek saamkom.\"", "Hy vra: \"Ek kom saam.\"", "Hy vra: \"Jy kom saam.\""], answer: "Hy vra: \"Kom jy saam?\"" },
+            { question: "Verander na die bedrywende vorm: 'Die venster is deur hom gebreek.'", options: ["Hy het die venster gebreek.", "Die venster het hom gebreek.", "Hy breek die venster.", "Die venster breek hom."], answer: "Hy het die venster gebreek." },
+            { question: "Watse tipe sin is hierdie? 'Wat is jou naam?'", options: ["Stelsin", "Vraagsin", "Bevelsin", "Uitroepsin"], answer: "Vraagsin" },
+            { question: "Identifiseer die onderwerp in die sin: 'Die vinnige jakkals spring oor die lui hond.'", options: ["Die vinnige jakkals", "spring", "oor die lui hond", "lui hond"], answer: "Die vinnige jakkals" },
+            { question: "Identifiseer die voorwerp in die sin: 'Die meisie eet 'n appel.'", options: ["Die meisie", "eet", "'n appel", "appel"], answer: "'n appel" },
+            { question: "STOMPI: Rangskik die woorde: (gisteraand - die fliek - ons - geniet - baie)", options: ["Ons het gisteraand die fliek baie geniet.", "Gisteraand het ons die fliek baie geniet.", "Ons het die fliek gisteraand baie geniet.", "Baie het ons gisteraand die fliek geniet."], answer: "Ons het gisteraand die fliek baie geniet." },
+            { question: "Verander na lydende vorm: 'Sy sal die liedjie sing.'", options: ["Die liedjie sal deur haar gesing word.", "Die liedjie word deur haar gesing.", "Sy sing die liedjie.", "Die liedjie sing haar."], answer: "Die liedjie sal deur haar gesing word." },
+            { question: "Verander na indirekte rede: 'Hy beveel: \"Staan op!\"'", options: ["Hy beveel hom om op te staan.", "Hy beveel dat hy opstaan.", "Hy sê hy moet opstaan.", "Hy beveel: Staan op!"], answer: "Hy beveel hom om op te staan." },
+            { question: "Identifiseer die hoofsin: 'Alhoewel dit reën, gaan ons buite speel.'", options: ["Alhoewel dit reën", "gaan ons buite speel", "ons gaan buite speel", "dit reën"], answer: "gaan ons buite speel" },
+            { question: "Watse tipe sin is hierdie? 'Eina, dit is seer!'", options: ["Stelsin", "Vraagsin", "Bevelsin", "Uitroepsin"], answer: "Uitroepsin" },
+            { question: "Verander na bedrywende vorm: 'Die koek is deur my gebak.'", options: ["Ek het die koek gebak.", "Die koek het my gebak.", "Ek bak die koek.", "Die koek bak my."], answer: "Ek het die koek gebak." },
+            { question: "STOMPI: Rangskik die woorde: (elke dag - sy - met die bus - skool toe - ry)", options: ["Sy ry elke dag met die bus skool toe.", "Elke dag ry sy met die bus skool toe.", "Sy ry met die bus elke dag skool toe.", "Skool toe ry sy elke dag met die bus."], answer: "Sy ry elke dag met die bus skool toe." },
+            { question: "Identifiseer die bysin: 'Ek weet nie waar hy is nie.'", options: ["Ek weet nie", "waar hy is nie", "hy is nie", "waar hy is"], answer: "waar hy is nie" },
+            { question: "Verander na lydende vorm: 'Hulle het die huis geverf.'", options: ["Die huis is deur hulle geverf.", "Die huis was deur hulle geverf.", "Hulle verf die huis.", "Die huis verf hulle."], answer: "Die huis is deur hulle geverf." }
+        ]
+    },
+    {
+        name: "Werkwoordtye",
+        questions: [
+            { question: "Verander na verlede tyd: 'Ek (speel) buite.'", options: ["Ek het buite gespeel.", "Ek was buite gespeel.", "Ek speel buite.", "Ek sal buite speel."], answer: "Ek het buite gespeel." },
+            { question: "Verander na toekomende tyd: 'Sy (lees) 'n boek.'", options: ["Sy sal 'n boek lees.", "Sy het 'n boek gelees.", "Sy lees 'n boek.", "Sy gaan 'n boek lees."], answer: "Sy sal 'n boek lees." },
+            { question: "Wat is die teenwoordige tyd van 'geloop'?", options: ["loop", "het geloop", "sal loop", "geloop het"], answer: "loop" },
+            { question: "Verander na verlede tyd: 'Ons (eet) pizza.'", options: ["Ons het pizza geëet.", "Ons was pizza geëet.", "Ons eet pizza.", "Ons sal pizza eet."], answer: "Ons het pizza geëet." },
+            { question: "Verander na toekomende tyd: 'Hulle (kyk) TV.'", options: ["Hulle sal TV kyk.", "Hulle het TV gekyk.", "Hulle kyk TV.", "Hulle gaan TV kyk."], answer: "Hulle sal TV kyk." },
+            { question: "Wat is die korrekte vorm? 'Gister (is) ek siek.'", options: ["was", "is", "wees", "sal wees"], answer: "was" },
+            { question: "Verander na verlede tyd: 'Die hond (blaf).'", options: ["Die hond het geblaf.", "Die hond was geblaf.", "Die hond blaf.", "Die hond sal blaf."], answer: "Die hond het geblaf." },
+            { question: "Verander na toekomende tyd: 'Jy (skryf) 'n brief.'", options: ["Jy sal 'n brief skryf.", "Jy het 'n brief geskryf.", "Jy skryf 'n brief.", "Jy gaan 'n brief skryf."], answer: "Jy sal 'n brief skryf." },
+            { question: "Kies die korrekte sin in die verlede tyd.", options: ["Hy het die venster gebreek.", "Hy breek die venster.", "Hy sal die venster breek.", "Hy het die venster breek."], answer: "Hy het die venster gebreek." },
+            { question: "Kies die korrekte sin in die toekomende tyd.", options: ["Ons sal die wedstryd wen.", "Ons wen die wedstryd.", "Ons het die wedstryd gewen.", "Ons sal die wedstryd gewen."], answer: "Ons sal die wedstryd wen." },
+            { question: "Verander na teenwoordige tyd: 'Sy het gelag.'", options: ["Sy lag.", "Sy het gelag.", "Sy sal lag.", "Sy lag het."], answer: "Sy lag." },
+            { question: "Verander na verlede tyd: 'Ek (doen) my huiswerk.'", options: ["Ek het my huiswerk gedoen.", "Ek was my huiswerk gedoen.", "Ek doen my huiswerk.", "Ek sal my huiswerk doen."], answer: "Ek het my huiswerk gedoen." },
+            { question: "Verander na toekomende tyd: 'Die voël (sing).'", options: ["Die voël sal sing.", "Die voël het gesing.", "Die voël sing.", "Die voël gaan sing."], answer: "Die voël sal sing." },
+            { question: "Wat is die verlede tyd van 'begin'?", options: ["het begin", "begon", "begin het", "beginde"], answer: "het begin" },
+            { question: "Wat is die toekomende tyd van 'verstaan'?", options: ["sal verstaan", "het verstaan", "verstaan het", "verstaan sal"], answer: "sal verstaan" },
+            { question: "Verander na verlede tyd: 'Hulle (besoek) hul ouma.'", options: ["Hulle het hul ouma besoek.", "Hulle was hul ouma besoek.", "Hulle besoek hul ouma.", "Hulle sal hul ouma besoek."], answer: "Hulle het hul ouma besoek." },
+            { question: "Verander na toekomende tyd: 'Ek (help) jou.'", options: ["Ek sal jou help.", "Ek het jou gehelp.", "Ek help jou.", "Ek gaan jou help."], answer: "Ek sal jou help." },
+            { question: "Kies die sin in die verlede voltooide tyd.", options: ["Nadat hy geëet het, het hy gaan slaap.", "Hy het geëet.", "Hy eet.", "Hy sal eet."], answer: "Nadat hy geëet het, het hy gaan slaap." },
+            { question: "Kies die sin in die voltooide teenwoordige tyd.", options: ["Ek het die fliek al gesien.", "Ek sien die fliek.", "Ek sal die fliek sien.", "Ek het die fliek gesien gister."], answer: "Ek het die fliek al gesien." },
+            { question: "Verander na verlede tyd: 'Sy (lees) die koerant.'", options: ["Sy het die koerant gelees.", "Sy was die koerant gelees.", "Sy lees die koerant.", "Sy sal die koerant lees."], answer: "Sy het die koerant gelees." }
+        ]
+    },
+    {
+        name: "Woordvorming en -verandering",
+        questions: [
+            { question: "Vorm 'n samestelling met 'boek' en 'rak'.", options: ["boekrak", "rakboek", "boeke rak", "rakke boek"], answer: "boekrak" },
+            { question: "Wat is die korrekte afleiding met die agtervoegsel '-heid' vir 'mooi'?", options: ["mooiheid", "mooigeid", "mooiheidheid", "mooi"], answer: "mooiheid" },
+            { question: "Gee die intensiewe vorm van 'groot'.", options: ["reusegroot", "baie groot", "grootgroot", "groter"], answer: "reusegroot" },
+            { question: "Wat is die verkleinwoord van 'hond'?", options: ["hondjie", "hondjie", "hondetjie", "hondie"], answer: "hondjie" },
+            { question: "Wat is die meervoud van 'tafel'?", options: ["tafels", "tafelle", "tafelde", "tafelens"], answer: "tafels" },
+            { question: "Kies die sinoniem vir 'bly'.", options: ["gelukkig", "hartseer", "kwaad", "moeg"], answer: "gelukkig" },
+            { question: "Kies die antoniem vir 'warm'.", options: ["koud", "hitte", "son", "vuur"], answer: "koud" },
+            { question: "Watter woord is 'n homoniem vir 'leer' (ladder)?", options: ["leer (to learn)", "lier", "leur", "laer"], answer: "leer (to learn)" },
+            { question: "Vorm 'n samestelling met 'son' en 'bril'.", options: ["sonbril", "brilson", "sonnebril", "brilleson"], answer: "sonbril" },
+            { question: "Wat is die afleiding van 'werk' met die voorvoegsel 'ver-'?", options: ["verwerk", "werkver", "verewer", "werver"], answer: "verwerk" },
+            { question: "Gee die intensiewe vorm van 'vinnig'.", options: ["blitsvinnig", "baie vinnig", "vinnigvinnig", "vinniger"], answer: "blitsvinnig" },
+            { question: "Wat is die verkleinwoord van 'stoel'?", options: ["stoeltjie", "stoelie", "stoeletjie", "stoelke"], answer: "stoeltjie" },
+            { question: "Wat is die meervoud van 'voet'?", options: ["voete", "voets", "voette", "voetens"], answer: "voete" },
+            { question: "Kies die sinoniem vir 'praat'.", options: ["gesels", "luister", "skree", "sing"], answer: "gesels" },
+            { question: "Kies die antoniem vir 'dag'.", options: ["nag", "lig", "son", "maan"], answer: "nag" },
+            { question: "Wat is die meervoud van 'oog'?", options: ["oë", "ooge", "oëe", "oogs"], answer: "oë" },
+            { question: "Wat is die verkleinwoord van 'boek'?", options: ["boekie", "boeketjie", "boekjie", "boekke"], answer: "boekie" },
+            { question: "Gee die intensiewe vorm van 'koud'.", options: ["ysterkoud", "baie koud", "koudkoud", "kouer"], answer: "ysterkoud" },
+            { question: "Vorm 'n samestelling met 'reën' en 'boog'.", options: ["reënboog", "boogreën", "reëneboog", "boëreën"], answer: "reënboog" },
+            { question: "Kies die antoniem vir 'oud'.", options: ["jonk", "nuut", "oudheid", "groot"], answer: "jonk" }
+        ]
+    },
+    {
+        name: "Spel- en skryfkonvensies",
+        questions: [
+            { question: "Watter leesteken kom aan die einde van 'n vraagsin?", options: ["?", ".", "!", ","], answer: "?" },
+            { question: "Kies die korrekte spelling: 'Die see is (blou/blouw).'", options: ["blou", "blouw"], answer: "blou" },
+            { question: "Wanneer gebruik ons 'n komma?", options: ["Om items in 'n lys te skei", "Aan die einde van 'n sin", "Om 'n vraag te vra", "Om 'n bevel te gee"], answer: "Om items in 'n lys te skei" },
+            { question: "Watter woord het 'n deelteken nodig?", options: ["geëet", "geet", "geeet", "ge-eet"], answer: "geëet" },
+            { question: "Watter woord het 'n kappie nodig?", options: ["wêreld", "wereld", "werelt", "wêrelt"], answer: "wêreld" },
+            { question: "Wat is die korrekte spelling vir die meervoud van 'vlieg'?", options: ["vlieë", "vliege", "vlieëe", "vliegs"], answer: "vlieë" },
+            { question: "Watter sin gebruik aanhalingstekens korrek?", options: ["\"Ek kom,\" sê sy.", "\"Ek kom, sê sy.\"", "Ek kom, \"sê sy.\"", "\"Ek kom\" sê sy."], answer: "\"Ek kom,\" sê sy." },
+            { question: "Wanneer gebruik ons 'n hoofletter?", options: ["Aan die begin van 'n sin en vir eiename", "Vir alle selfstandige naamwoorde", "In die middel van 'n sin", "Nooit nie"], answer: "Aan die begin van 'n sin en vir eiename" },
+            { question: "Wat beteken die afkappingsteken in 's'n'?", options: ["Dit wys besitting aan", "Dit is 'n meervoud", "Dit is 'n verkleinwoord", "Dit is 'n fout"], answer: "Dit wys besitting aan" },
+            { question: "Kies die korrekte spelling: 'Ek (glo/geloof) in jou.'", options: ["glo", "geloof"], answer: "glo" },
+            { question: "Watter leesteken word gebruik vir 'n pouse in 'n sin?", options: [",", ".", "?", "!"], answer: "," },
+            { question: "Kies die woord met die korrekte spelling.", options: ["interessant", "interresant", "intresant", "interessent"], answer: "interessant" },
+            { question: "Wat is die funksie van 'n punt (.)?", options: ["Dit beëindig 'n stelsin.", "Dit begin 'n sin.", "Dit vra 'n vraag.", "Dit wys verbasing."], answer: "Dit beëindig 'n stelsin." },
+            { question: "Watter woord het 'n afkappingsteken nodig?", options: ["ma's", "mas", "maas", "ma'es"], answer: "ma's" },
+            { question: "Kies die korrekte sin.", options: ["My pa, wat 'n dokter is, werk hard.", "My pa wat 'n dokter is werk hard.", "My pa, wat 'n dokter is werk hard.", "My pa wat 'n dokter is, werk hard."], answer: "My pa, wat 'n dokter is, werk hard." },
+            { question: "Watter leesteken wys dat woorde uitgelaat is?", options: ["...", ".", ",", "!"], answer: "..." },
+            { question: "Kies die korrekte spelling: 'Die (baie/baije) blomme is mooi.'", options: ["baie", "baije"], answer: "baie" },
+            { question: "Wat word gebruik om direkte woorde aan te dui?", options: ["Aanhalingstekens", "Hakies", "Kommas", "Punte"], answer: "Aanhalingstekens" },
+            { question: "Watter woord is korrek gespel?", options: ["onmiddellik", "onmiddelik", "onmidelik", "onmiddellik"], answer: "onmiddellik" },
+            { question: "Watter sin is korrek geskryf?", options: ["Waar is my boek?", "waar is my boek.", "Waar is my boek.", "waar is my boek?"], answer: "Waar is my boek?" }
+        ]
+    },
+    {
+        name: "Idiome en gesegdes",
+        questions: [
+            { question: "Wat beteken die idioom: 'Die aap uit die mou laat'?", options: ["'n Geheim verklap", "'n Aap vrylaat", "Iemand kwaad maak", "Om te jok"], answer: "'n Geheim verklap" },
+            { question: "Voltooi die idioom: 'As die kat weg is, is die muis...'", options: ["baas", "weg", "bang", "stil"], answer: "baas" },
+            { question: "Wat beteken: 'Hy het lang vingers.'?", options: ["Hy steel", "Hy het groot hande", "Hy is lank", "Hy is 'n pianis"], answer: "Hy steel" },
+            { question: "Kies die korrekte betekenis vir: 'Jakkals prys sy eie stert.'", options: ["Iemand wat met homself spog", "'n Jakkals is 'n mooi dier", "Sterte is belangrik", "'n Jakkals is slinks"], answer: "Iemand wat met homself spog" },
+            { question: "Wat beteken die gesegde: 'Alle grappies op 'n stokkie.'?", options: ["Nou moet ons ernstig wees", "Dis tyd vir grappies", "Die stokkie is vol", "Die grap is verby"], answer: "Nou moet ons ernstig wees" },
+            { question: "Voltooi die idioom: 'Hy is 'n wolf in ...'", options: ["skaapsklere", "wolfsklere", "die bos", "sy huis"], answer: "skaapsklere" },
+            { question: "Wat beteken: 'Die spyker op die kop slaan'?", options: ["Presies reg wees", "'n Spyker inslaan", "Iemand seermaak", "Gelukkig wees"], answer: "Presies reg wees" },
+            { question: "Wat beteken: 'Die son trek water'?", options: ["Dit lyk of dit gaan reën", "Die son is dors", "Die water verdamp", "Die son skyn op die water"], answer: "Dit lyk of dit gaan reën" },
+            { question: "Voltooi die gesegde: 'Oos, wes, ...'", options: ["tuis bes", "noord, suid", "op die res", "my nes"], answer: "tuis bes" },
+            { question: "Wat beteken: 'Hy het die kat aan die stert beet'?", options: ["Hy pak iets verkeerd aan", "Hy is lief vir katte", "Hy is sterk", "Hy is dapper"], answer: "Hy pak iets verkeerd aan" },
+            { question: "Wat beteken: 'Hoë bome vang die meeste wind'?", options: ["Mense in hoë posisies kry die meeste kritiek", "Wind waai hard", "Bome is hoog", "Hoë bome is gevaarlik"], answer: "Mense in hoë posisies kry die meeste kritiek" },
+            { question: "Voltooi die idioom: 'Die koeël is deur die ...'", options: ["kerk", "muur", "venster", "deur"], answer: "kerk" },
+            { question: "Wat beteken: 'Iets uit jou duim suig'?", options: ["Iets opmaak", "Jou duim is seer", "Jy is dors", "Jy is kreatief"], answer: "Iets opmaak" },
+            { question: "Wat beteken: 'Die paal haal'?", options: ["Sukses behaal", "Oor 'n paal spring", "'n Paal optel", "Die einde bereik"], answer: "Sukses behaal" },
+            { question: "Voltooi die gesegde: ''n Voëltjie het my ...'", options: ["vertel", "gesing", "gefluister", "gepik"], answer: "gefluister" },
+            { question: "Wat beteken: 'Die bobbejaan agter die bult gaan haal'?", options: ["Jou bekommer oor probleme wat nog nie bestaan nie", "'n Bobbejaan gaan soek", "Oor 'n bult klim", "Dapper wees"], answer: "Jou bekommer oor probleme wat nog nie bestaan nie" },
+            { question: "Wat beteken: 'Hy is nie onder 'n kalkoen uitgebroei nie'?", options: ["Hy is nie dom nie", "Hy is 'n mens", "Hy hou nie van kalkoene nie", "Hy is jonk"], answer: "Hy is nie dom nie" },
+            { question: "Voltooi die idioom: 'Sy hart is in sy ...'", options: ["skoene", "hande", "kop", "maag"], answer: "skoene" },
+            { question: "Wat beteken: 'Wanneer die perde horings kry'?", options: ["Nooit nie", "In die toekoms", "Wanneer diere snaaks lyk", "As jy gelukkig is"], answer: "Nooit nie" },
+            { question: "Wat beteken: 'Die kat in die donker knyp'?", options: ["Iets skelm doen", "'n Kat seermaak", "Bang wees in die donker", "Sonder lig werk"], answer: "Iets skelm doen" }
+        ]
+    },
+    {
+        name: "Letterlik en Figuurlik",
+        questions: [
+            { question: "Identifiseer die tipe beeldspraak: 'Die see is 'n kwaai hond vandag.'", options: ["Metafoor", "Vergelyking", "Personifikasie", "Hiperbool"], answer: "Metafoor" },
+            { question: "Wat is 'n vergelyking?", options: ["'n Vergelyking met 'soos' of 'nes'", "'n Direkte vergelyking sonder 'soos'", "'n Menslike eienskap aan 'n voorwerp gee", "'n Groot oordrywing"], answer: "'n Vergelyking met 'soos' of 'nes'" },
+            { question: "Identifiseer die personifikasie: 'Die wind huil om die hoeke van die huis.'", options: ["Die wind huil", "om die hoeke", "van die huis", "Die wind"], answer: "Die wind huil" },
+            { question: "Wat beteken die hiperbool: 'Ek het 'n miljoen jaar gewag.'?", options: ["Ek het baie lank gewag", "Ek het presies 'n miljoen jaar gewag", "Ek is baie oud", "Ek is ongeduldig"], answer: "Ek het baie lank gewag" },
+            { question: "Watter van die volgende is 'n voorbeeld van 'n vergelyking?", options: ["Hy is so sterk soos 'n leeu.", "Hy is 'n leeu.", "Die leeu brul.", "Die leeu se krag is groot."], answer: "Hy is so sterk soos 'n leeu." },
+            { question: "Identifiseer die metafoor: 'Sy woorde was dolke in my hart.'", options: ["woorde was dolke", "in my hart", "Sy woorde", "my hart"], answer: "woorde was dolke" },
+            { question: "Wat is die funksie van personifikasie?", options: ["Om lewe en menslike eienskappe aan nie-menslike dinge te gee", "Om twee dinge te vergelyk", "Om iets te oordryf", "Om die teenoorgestelde te sê van wat jy bedoel"], answer: "Om lewe en menslike eienskappe aan nie-menslike dinge te gee" },
+            { question: "Kies die voorbeeld van hiperbool.", options: ["Die man is 'n reus.", "Die man is so lank soos 'n reus.", "Ek het jou al 'n duisend keer gesê.", "Die reusagtige man loop."], answer: "Ek het jou al 'n duisend keer gesê." },
+            { question: "Identifiseer die beeldspraak: 'Die motor hyg en proes teen die bult uit.'", options: ["Personifikasie", "Metafoor", "Vergelyking", "Ironie"], answer: "Personifikasie" },
+            { question: "Wat is die verskil tussen 'n metafoor en 'n vergelyking?", options: ["'n Vergelyking gebruik 'soos' of 'nes', 'n metafoor nie.", "'n Metafoor is sterker as 'n vergelyking.", "Daar is geen verskil nie.", "'n Metafoor is altyd langer."], answer: "'n Vergelyking gebruik 'soos' of 'nes', 'n metafoor nie." },
+            { question: "Identifiseer die vergelyking: 'Haar oë blink nes sterre.'", options: ["oë blink nes sterre", "Haar oë", "blink sterre", "nes sterre"], answer: "oë blink nes sterre" },
+            { question: "Wat is ironie?", options: ["Wanneer jy die teenoorgestelde sê van wat jy bedoel", "Wanneer jy iets oordryf", "Wanneer jy menslike eienskappe aan iets gee", "Wanneer jy twee dinge vergelyk"], answer: "Wanneer jy die teenoorgestelde sê van wat jy bedoel" },
+            { question: "Kies die voorbeeld van 'n metafoor.", options: ["Die wêreld is 'n verhoog.", "Die wêreld is soos 'n verhoog.", "Die verhoog is in die wêreld.", "Die wêreld speel toneel."], answer: "Die wêreld is 'n verhoog." },
+            { question: "Identifiseer die personifikasie: 'Die son glimlag vir my.'", options: ["Die son glimlag", "vir my", "Die son", "glimlag vir my"], answer: "Die son glimlag" },
+            { question: "Wat is 'n eufemisme?", options: ["'n Versagtende uitdrukking vir iets onaangenaams", "'n Groot oordrywing", "'n Vergelyking", "'n Direkte stelling"], answer: "'n Versagtende uitdrukking vir iets onaangenaams" },
+            { question: "Kies die eufemisme vir 'hy is dood'.", options: ["Hy het heengegaan.", "Hy is weg.", "Hy slaap.", "Hy is nie hier nie."], answer: "Hy het heengegaan." },
+            { question: "Identifiseer die beeldspraak: 'Die sjokoladekoek roep my naam.'", options: ["Personifikasie", "Metafoor", "Hiperbool", "Vergelyking"], answer: "Personifikasie" },
+            { question: "Wat is die letterlike betekenis van 'Die ys is gebreek'?", options: ["Die bevrore water het gekraak.", "Die atmosfeer is meer ontspanne.", "Iemand het geval.", "Dit is koud."], answer: "Die bevrore water het gekraak." },
+            { question: "Wat is die figuurlike betekenis van 'Hy het 'n hart van goud'?", options: ["Hy is 'n baie goeie en vrygewige persoon.", "Sy hart is van metaal gemaak.", "Hy is ryk.", "Hy hou van goud."], answer: "Hy is 'n baie goeie en vrygewige persoon." },
+            { question: "Identifiseer die metafoor: 'Tyd is 'n dief.'", options: ["Tyd is 'n dief", "Tyd steel", "'n Dief van tyd", "Die dief"], answer: "Tyd is 'n dief" }
         ]
     },
     {
         name: "Leesbegrip",
         comprehension: {
-            text: "Die leeu is die koning van die diere. Hy het groot tande en skerp kloue. Die leeu woon in die savanne en jag vir kos. Hy eet vleis en kan baie vinnig hardloop.",
+            text: "Die Kalahari-woestyn is 'n groot, droë gebied in Suider-Afrika. Ten spyte van die min reën, is daar baie unieke diere wat hier aangepas het om te oorleef. Een so 'n dier is die meerkat. Meerkatte is klein roofdiere wat in groot familiegroepe, of 'bendes', woon. Hulle werk saam om kos te soek en om hulself teen gevare te beskerm. Een meerkat staan altyd wag, regop op sy agterpote, terwyl die ander grawe vir insekte en klein reptiele. As die wagter 'n roofdier soos 'n arend of 'n jakkals sien, gee hy 'n skerp fluitgeluid en almal hardloop na die naaste gat in die grond.",
             questions: [
-                {
-                    question: "Wie is die koning van die diere?",
-                    options: ["Die tier", "Die leeu", "Die olifant", "Die renoster"],
-                    answer: "Die leeu"
-                },
-                {
-                    question: "Waar woon die leeu?",
-                    options: ["In die oerwoud", "In die see", "In die savanne", "In die stad"],
-                    answer: "In die savanne"
-                },
-                {
-                    question: "Wat eet die leeu?",
-                    options: ["Plante", "Vrugte", "Vleis", "Niks"],
-                    answer: "Vleis"
-                }
+                { question: "Waar is die Kalahari-woestyn?", type: "comprehension", options: ["Noord-Afrika", "Suider-Afrika", "Egipte", "Australië"], answer: "Suider-Afrika" },
+                { question: "Wat is 'n 'bende' meerkatte?", type: "comprehension", options: ["'n Groep wat steel", "'n Familiegroep", "'n Klomp roofdiere", "'n Paartie meerkatte"], answer: "'n Familiegroep" },
+                { question: "Hoe waarsku die wagter-meerkat die ander?", type: "comprehension", options: ["Hy skree hard", "Hy stamp sy voete", "Hy gee 'n skerp fluitgeluid", "Hy byt hulle"], answer: "Hy gee 'n skerp fluitgeluid" },
+                { question: "Wat eet meerkatte?", type: "comprehension", options: ["Plante en vrugte", "Gras en blare", "Insekte en klein reptiele", "Groot diere"], answer: "Insekte en klein reptiele" },
+                { question: "Hoekom staan een meerkat wag?", type: "comprehension", options: ["Hy is nie honger nie", "Hy is die leier", "Om die groep te beskerm teen gevare", "Hy is moeg gegrawe"], answer: "Om die groep te beskerm teen gevare" },
+                { question: "Identifiseer die byvoeglike naamwoord in die frase: 'n **groot**, **droë** gebied'.", type: "grammar", options: ["groot, droë", "gebied", "n", "in"], answer: "groot, droë" },
+                { question: "Gee die meervoud van 'jakkals'.", type: "grammar", options: ["jakkalse", "jakkals", "jakkalste", "jakkalsse"], answer: "jakkalse" },
+                { question: "Wat is die hoofwerkwoord in die sin: 'Hulle **werk** saam'?", type: "grammar", options: ["Hulle", "werk", "saam", "om"], answer: "werk" },
+                { question: "Gee die verkleinwoord van 'gat'.", type: "grammar", options: ["gatjie", "gaatjie", "gatetjie", "gatteke"], answer: "gaatjie" },
+                { question: "Die woord 'regop' is 'n voorbeeld van 'n...", type: "grammar", options: ["Bywoord van wyse", "Bywoord van plek", "Byvoeglike naamwoord", "Selfstandige naamwoord"], answer: "Bywoord van wyse" }
             ]
         }
     }

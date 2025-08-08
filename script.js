@@ -1,13 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const topicsContainer = document.getElementById('topics');
+    const topicsContainer = document.getElementById('topics-container');
     const comprehensionContainer = document.getElementById('comprehension-container');
     const quizContainer = document.getElementById('quiz-container');
     const resultsContainer = document.getElementById('results-container');
     const topicsDiv = document.getElementById('topics');
+    const backBtn = document.getElementById('back-btn');
+    const homeBtn = document.getElementById('home-btn');
+    const forwardBtn = document.getElementById('forward-btn');
 
     let currentTopic = null;
     let currentQuestionIndex = 0;
     let score = 0;
+    let historyStack = [];
+
+    function updateNavButtons() {
+        backBtn.classList.toggle('hidden', historyStack.length <= 1);
+        homeBtn.classList.toggle('hidden', historyStack.length === 0);
+        forwardBtn.classList.add('hidden'); // Forward button functionality is complex, so we'll keep it simple for now.
+    }
+
+    function showTopics() {
+        historyStack = [];
+        topicsContainer.classList.remove('hidden');
+        comprehensionContainer.classList.add('hidden');
+        quizContainer.classList.add('hidden');
+        resultsContainer.classList.add('hidden');
+        updateNavButtons();
+    }
 
     function init() {
         topics.forEach(topic => {
@@ -16,19 +35,45 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => startQuiz(topic));
             topicsDiv.appendChild(button);
         });
+        homeBtn.addEventListener('click', showTopics);
+        backBtn.addEventListener('click', () => {
+            if (historyStack.length > 1) {
+                historyStack.pop();
+                const prevState = historyStack[historyStack.length - 1];
+                loadState(prevState);
+            }
+        });
+        showTopics();
     }
 
-    function startQuiz(topic) {
-        currentTopic = topic;
-        topicsContainer.parentElement.classList.add('hidden');
+    function loadState(state) {
+        currentTopic = state.topic;
+        currentQuestionIndex = state.questionIndex;
+        score = state.score;
 
-        if (topic.comprehension) {
+        topicsContainer.classList.add('hidden');
+        comprehensionContainer.classList.add('hidden');
+        quizContainer.classList.add('hidden');
+        resultsContainer.classList.add('hidden');
+
+        if (currentTopic.comprehension) {
             comprehensionContainer.classList.remove('hidden');
-            displayComprehension(topic.comprehension);
+            displayComprehension(currentTopic.comprehension);
         } else {
             quizContainer.classList.remove('hidden');
             displayQuestion();
         }
+        updateNavButtons();
+    }
+
+    function startQuiz(topic) {
+        const state = {
+            topic: topic,
+            questionIndex: 0,
+            score: 0
+        };
+        historyStack.push(state);
+        loadState(state);
     }
 
     function displayComprehension(comprehension) {
