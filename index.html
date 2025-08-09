@@ -15,6 +15,7 @@
     </div>
     <header>
         <h1>Welkom by die Safari Avontuur!</h1>
+        <div id="total-safari-score-container">Totale Safari-telling: <span id="total-safari-score">0</span></div>
     </header>
     <nav>
         <button id="back-btn" class="hidden">Terug</button>
@@ -29,16 +30,17 @@
                 <h3>My Kentekens</h3>
             </div>
         </div>
+        <div id="stats-container" class="hidden">
+            <div id="lives-container"></div>
+            <div id="score-container">Score: <span id="current-score">0</span></div>
+        </div>
         <div id="comprehension-container" class="hidden">
             <h2>Lees die teks en beantwoord die vrae</h2>
             <div id="comprehension-text"></div>
             <div id="comprehension-questions"></div>
+            <button id="finish-comprehension-btn" class="hidden">Klaar</button>
         </div>
         <div id="quiz-container" class="hidden">
-            <div id="stats-container">
-                <div id="lives-container"></div>
-                <div id="score-container">Score: <span id="current-score">0</span></div>
-            </div>
             <div id="question-container">
                 <p id="question"></p>
                 <div id="options-container"></div>
